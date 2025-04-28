@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>별 피라미드</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #c1d4a4;
+      }
+
+
+      #pyramid {
+        font-family: Consolas, "Courier New", monospace;
+        display: flex;
+        justify-content: center;
+        white-space: pre;
+        line-height: 1.2;
+        margin: 20px auto;
+        width: 100%;
+        color: #8b0000;
+        font-weight: 200;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="pyramid"></div>
+
+    <script>
+      function createPyramid() {
+        let pyramid = "";
+        const rows = 20; // 피라미드의 줄 수
+
+        for (let i = 1; i <= rows; i++) {
+          // 각 줄의 공백과 별을 정확히 계산
+          const stars = "*".repeat(2 * i - 1);
+          const spaces = " ".repeat(rows - i);
+          pyramid += spaces + stars + "\n";
+        }
+
+        // innerHTML을 사용하여 피라미드 표시
+        document.getElementById("pyramid").innerHTML = pyramid;
+      }
+
+      // 페이지 로드 시 피라미드 생성
+      createPyramid();
+    </script>
+  </body>
+</html>
